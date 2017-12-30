@@ -1,27 +1,19 @@
-import * as React from 'react';
-import { default as axios } from 'axios'
+import * as React from 'react'
+import Password from './components/password'
 import './App.css';
 
-const logo = require('./logo.svg');
-
-class App extends React.Component {
-  render() {
-    axios.get('/test')
-      .then( (res) => {
-        console.log(res.data)
-      })
+export interface AppProps {}
+export interface AppState {}
+export default class App extends React.Component<AppProps, AppState> {
+  render () {
     return (
-      <div className="App">
-        <div className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h2>Welcome to React</h2>
-        </div>
-        <p className="App-intro">
-          To get started, edit <code>src/App.tsx</code> and save to reload.
-        </p>
-      </div>
-    );
+      <Password
+        upperCase={true}
+        lowerCase={true}
+        special={true}
+        number={true}
+        over6={true} 
+      />
+    )
   }
 }
-
-export default App;
